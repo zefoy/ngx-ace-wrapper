@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "inlineSources": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "outDir": "../dist",
+    "rootDir": ".",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": false,
+    "target": "es5",
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "types": [
+      "node"
+      // Add this when typings work: "ace"
+    ]
+  },
+  "files": [
+    "index.ts"
+  ],
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "flatModuleId": "ngx-ace-wrapper",
+    "flatModuleOutFile": "ngx-ace-wrapper.js",
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true
+  }
+}
