@@ -18,7 +18,6 @@ export const AceSelectionEvents = [
   'changeSelection'
 ];
 
-
 export interface AceConfigInterface {
   readOnly?: boolean,
   cursorStyle?: 'ace' | 'slim' | 'smooth' | 'wide',
