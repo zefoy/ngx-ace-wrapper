@@ -1,6 +1,4 @@
-import 'brace';
-
-declare var ace: any;
+import * as ace from 'brace';
 
 import { Directive, Optional, Inject,
   OnInit, DoCheck, OnDestroy, OnChanges,
@@ -57,7 +55,7 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
     params.theme = 'ace/theme/' + (params.theme || 'github');
 
     this.zone.runOutsideAngular(() => {
-      this.instance = ace['edit'](this.elementRef.nativeElement);
+      this.instance = ace.edit(this.elementRef.nativeElement);
 
       this.instance.$blockScrolling = Infinity;
 

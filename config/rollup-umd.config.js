@@ -157,7 +157,11 @@ const globals = {
   'rxjs/operator/windowWhen': 'Rx.Observable.prototype',
   'rxjs/operator/withLatestFrom': 'Rx.Observable.prototype',
   'rxjs/operator/zip': 'Rx.Observable.prototype',
-  'rxjs/operator/zipAll': 'Rx.Observable.prototype'
+  'rxjs/operator/zipAll': 'Rx.Observable.prototype',
+
+  'brace': 'Brace',
+  'brace/mode/text': 'Brace.mode',
+  'brace/theme/github': 'Brace.theme'
 };
 
 const external = Object.keys(globals);

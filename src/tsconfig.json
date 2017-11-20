@@ -22,7 +22,7 @@
     ],
     "types": [
       "node"
-      // Add this when typings work: "ace"
+      // Add this when typings work: "brace"
     ]
   },
   "files": [

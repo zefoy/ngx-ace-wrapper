@@ -1,3 +1,8 @@
+import 'brace';
+
+import 'brace/mode/text';
+import 'brace/theme/github';
+
 import 'brace/theme/clouds';
 import 'brace/mode/javascript';
 
@@ -34,7 +39,7 @@ export class AppComponent {
   }
 
   toggleMode() {
-    this.config.mode = (this.config.theme === 'text') ? 'javascript' : 'text';
+    this.config.mode = (this.config.mode === 'text') ? 'javascript' : 'text';
   }
 
   toggleTheme() {

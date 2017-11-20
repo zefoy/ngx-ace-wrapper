@@ -1,2 +1,2 @@
-<div [ace]="config" [disabled]="disabled" (blur)="blur.emit($event)" (focus)="focus.emit($event)" (copy)="copy.emit($event)" (paste)="paste.emit($event)" (change)="onContentChange($event)" (changeCursor)="changeCursor.emit($event)" (changeSession)="changeSession.emit($event)" (changeSelection)="changeSelection.emit($event)">
+<div [ace]="getConfig()" [disabled]="disabled" (blur)="blur.emit($event)" (focus)="focus.emit($event)" (copy)="copy.emit($event)" (paste)="paste.emit($event)" (change)="onContentChange($event)" (changeCursor)="changeCursor.emit($event)" (changeSession)="changeSession.emit($event)" (changeSelection)="changeSelection.emit($event)">
 </div>

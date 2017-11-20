@@ -71,10 +71,16 @@ This library provides two ways to create a Ace element, component for simple use
 
 Simply replace the element that would ordinarily be passed to `Ace` with the ace component.
 
-**NOTE:** Component provides default toolbar element which you can enable by setting the appropriate configuration to 'true' or by providing custom toolbar config. If you want to use a custom toolbar then you might want to use the directive instead.
+You also need to import brace and the used mode(s) and theme(s):
+
+```javascript
+import 'brace';
+import 'brace/mode/text';
+import 'brace/theme/github';
+```
 
 ```html
-<ace [config]="config" [(value)]="value"></ace>
+<ace [config]="config" [mode]="'text'" [theme]="'github'" [(value)]="value"></ace>
 ```
 
 ```javascript
@@ -94,11 +100,12 @@ Simply replace the element that would ordinarily be passed to `Ace` with the ace
 
 **DIRECTIVE USAGE**
 
-When using only the directive you need to import the used mode(s) and theme(s):
+You need to always import brace and the used mode(s) and theme(s):
 
 ```javascript
-@import 'brace/mode/text';
-@import 'brace/theme/github';
+import 'brace';
+import 'brace/mode/text';
+import 'brace/theme/github';
 ```
 
 Ace directive can be used in correctly structured div element with optional custom configuration:
@@ -123,6 +130,7 @@ wrap                         // Sets text wrapping to be enabled or disabled.
 tabSize                      // Size in spaces of the soft tabs (Default: 4).
 
 showPrintMargin              // Sets showing of the print margin (Default: false).
+printMarginColumn            // Sets the column where the print margin should be.
 ```
 
 For more detailed documentation with all the supported config options see [Ace documentation](http://ace.c9.io/#nav-api).
@@ -134,7 +142,8 @@ ace()                        // Returns the Ace instance reference for full API 
 
 clear()                      // Clears the editor document and resets text selection.
 
-setValue(value, cursorPos?)  // Text value for the editor document (clears selection).
+setValue(value, cursorPos?)  // Text value for the editor document. Cursor position:
+                             // 0 = select all, -1 = document start, 1 = document end.
 ```
 
 Above functions can be accessed through the directive reference (available as directiveRef in the component).

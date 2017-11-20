@@ -29,8 +29,8 @@ export class AceComponent implements AfterViewInit {
 
   @Input() disabled: boolean = false;
 
-  @Input() mode: string = 'text';
-  @Input() theme: string = 'github';
+  @Input() mode: string = null;
+  @Input() theme: string = null;
 
   @Input() config: AceConfigInterface;
 
@@ -69,6 +69,16 @@ export class AceComponent implements AfterViewInit {
 
       this.content = value;
     }
+  }
+
+  public getConfig() {
+    this.config = this.config || {};
+
+    this.config.mode = this.mode || this.config.mode;
+
+    this.config.theme = this.theme || this.config.theme;
+
+    return this.config;
   }
 
   public onContentChange(event: any) {
