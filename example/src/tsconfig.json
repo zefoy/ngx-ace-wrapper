@@ -24,7 +24,7 @@
     ],
     "types": [
       "node"
-      // Add this when typings work: "quill"
+      // Add this when typings work: "brace"
     ]
   }
 }
