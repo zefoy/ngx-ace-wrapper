@@ -34,7 +34,6 @@ npm link ngx-ace-wrapper
 ### Installing and usage
 
 ```bash
-npm install brace --save
 npm install ngx-ace-wrapper --save
 ```
 
