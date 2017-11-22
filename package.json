@@ -3,7 +3,7 @@
   "description": "Angular wrapper library for Ace",
   "bugs": "https://github.com/zefoy/ngx-ace-wrapper/issues",
   "license": "MIT",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "main": "./bundles/ngx-ace-wrapper.umd.js",
   "module": "./dist/ngx-ace-wrapper.es5.js",
   "typings": "./dist/ngx-ace-wrapper.d.ts",
