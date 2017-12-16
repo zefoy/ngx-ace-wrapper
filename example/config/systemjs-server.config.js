@@ -27,6 +27,7 @@
       'rxjs': 'npm:rxjs',
       'ts': 'npm:plugin-typescript/lib/plugin.js',
       'typescript': 'npm:typescript/lib/typescript.js',
+      'brace': 'npm:brace',
       'ngx-ace-wrapper': 'npm:ngx-ace-wrapper/bundles/ngx-ace-wrapper.umd.js'
     },
     packages: {
@@ -40,6 +41,10 @@
         }
       },
       'rxjs': {
+        defaultExtension: 'js'
+      },
+      'brace': {
+        main: 'index.js',
         defaultExtension: 'js'
       }
     }
