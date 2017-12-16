@@ -15,6 +15,7 @@ import { AceConfigInterface } from './ace.interfaces';
 
 @Component({
   selector: 'ace',
+  exportAs: 'ngxAce',
   templateUrl: './lib/ace.component.html',
   styleUrls: [ './lib/ace.component.css' ],
   encapsulation: ViewEncapsulation.None
