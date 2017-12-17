@@ -28,6 +28,7 @@
       'ts': 'npm:plugin-typescript/lib/plugin.js',
       'typescript': 'npm:typescript/lib/typescript.js',
       'brace': 'npm:brace',
+      'w3c-blob': 'npm:w3c-blob/browser.js',
       'ngx-ace-wrapper': 'npm:ngx-ace-wrapper/bundles/ngx-ace-wrapper.umd.js'
     },
     packages: {
