@@ -2,9 +2,7 @@
 
 <a href="https://badge.fury.io/js/ngx-ace-wrapper"><img src="https://badge.fury.io/js/ngx-ace-wrapper.svg" align="right" alt="npm version" height="18"></a>
 
-This is an Angular wrapper library for the [Ace](http://ace.c9.io/).
-
-To use this library you should get familiar with the Ace documentation as well since this documentation only explains details specific to this wrapper.
+This is an Angular wrapper library for the [Ace](http://ace.c9.io/). To use this library you should get familiar with the Ace documentation as well since this documentation only explains details specific to this wrapper.
 
 ### Quick Links
 
