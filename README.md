@@ -4,9 +4,15 @@
 
 This is an Angular wrapper library for the [Ace](http://ace.c9.io/).
 
-To use this library you should get familiar with the [Ace documentation](http://ace.c9.io/#nav-api) as well, this documentation only explains details specific to this wrapper.
+To use this library you should get familiar with the Ace documentation as well since this documentation only explains details specific to this wrapper.
 
-See a live example application <a href="https://zefoy.github.io/ngx-ace-wrapper/">here</a>.
+### Quick Links
+
+[Example application](https://zefoy.github.io/ngx-ace-wrapper/)
+ | 
+[Plunker template](http://plnkr.co/edit/bV63lfTXDSBpMdqKfleU?p=preview)
+ | 
+[Ace documentation](http://ace.c9.io/#nav-api)
 
 ### Building the library
 
@@ -132,7 +138,7 @@ showPrintMargin              // Sets showing of the print margin (Default: false
 printMarginColumn            // Sets the column where the print margin should be.
 ```
 
-For more detailed documentation with all the supported config options see [Ace documentation](http://ace.c9.io/#nav-api).
+For more detailed documentation with all the supported config options see the Ace documentation.
 
 ##### Available control / helper functions (provided by the directive):
 
