@@ -91,9 +91,7 @@ import 'brace/theme/github';
 
 [mode]                       // Mode for the editor (import mode manually!).
 [theme]                      // Theme for the editor (import theme manually!).
-
 [value]                      // Input value of the ace editor content (text).
-
 [disabled]                   // Disables all functionality (focus & editing).
 
 [useAceClass]                // Use ace class (use provided default styles).
