@@ -8,17 +8,15 @@
 
   &[fxflex] {
     display: flex;
-    flex-direction: column;
+    flex-direction: inherit;
     min-width: 0;
     min-height: 0;
 
-    -webkit-box-direction: column;
-    -webkit-box-orient: column;
+    -webkit-box-direction: inherit;
+    -webkit-box-orient: inherit;
 
     & > .ace_editor {
-      -ms-flex: 1 1 auto;
       flex: 1 1 auto;
-      width: auto;
       height: auto;
       min-width: 0;
       min-height: 0;
