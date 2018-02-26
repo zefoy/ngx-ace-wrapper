@@ -8,7 +8,7 @@ This is an Angular wrapper library for the [Ace](http://ace.c9.io/). To use this
 
 [Example application](https://zefoy.github.io/ngx-ace-wrapper/)
  | 
-[Plunker template](http://plnkr.co/edit/bV63lfTXDSBpMdqKfleU?p=preview)
+[StackBlitz example](https://stackblitz.com/github/zefoy/ngx-ace-wrapper/tree/master/example)
  | 
 [Ace documentation](http://ace.c9.io/#nav-api)
 
