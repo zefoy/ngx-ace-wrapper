@@ -132,10 +132,7 @@
       "camelCase"
     ],
     "component-selector": [
-      true,
-      "element",
-      false,
-      "kebab-case"
+      false
     ],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

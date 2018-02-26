@@ -7,8 +7,6 @@ import { Component,
   AfterViewInit, Input, Output, EventEmitter,
   ViewChild, HostBinding, ViewEncapsulation } from '@angular/core';
 
-import { ACE_CONFIG } from './ace.interfaces';
-
 import { AceDirective } from './ace.directive';
 
 import { AceConfigInterface } from './ace.interfaces';
