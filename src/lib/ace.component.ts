@@ -19,7 +19,7 @@ import { AceConfigInterface } from './ace.interfaces';
   encapsulation: ViewEncapsulation.None
 })
 export class AceComponent implements AfterViewInit {
-  private content: string = null;
+  private content: string = '';
 
   @Input()
   set value(value: string) {
@@ -28,8 +28,8 @@ export class AceComponent implements AfterViewInit {
 
   @Input() disabled: boolean = false;
 
-  @Input() mode: string = null;
-  @Input() theme: string = null;
+  @Input() mode: string = '';
+  @Input() theme: string = '';
 
   @Input() config: AceConfigInterface;
 
@@ -54,13 +54,13 @@ export class AceComponent implements AfterViewInit {
 
   constructor() {}
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (this.content != null) {
       this.setContent(this.content, true);
     }
   }
 
-  private setContent(value: string, force?: boolean) {
+  private setContent(value: string, force?: boolean): void {
     if (force || value !== this.content) {
       if (this.directiveRef && this.directiveRef.ace()) {
         this.directiveRef.setValue(value, -1);
@@ -70,7 +70,7 @@ export class AceComponent implements AfterViewInit {
     }
   }
 
-  public getConfig() {
+  public getConfig(): AceConfigInterface {
     this.config = this.config || {};
 
     this.config.mode = this.mode || this.config.mode;
@@ -80,7 +80,7 @@ export class AceComponent implements AfterViewInit {
     return this.config;
   }
 
-  public onContentChange(event: any) {
+  public onContentChange(event: any): void {
     this.change.emit(event);
 
     this.valueChange.emit(this.directiveRef.ace().getValue());

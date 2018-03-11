@@ -15,7 +15,7 @@ import { AceEditorEvents, AceSelectionEvents,
   exportAs: 'ngxAce'
 })
 export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
-  private instance: any = null;
+  private instance: ace.Editor = null;
 
   private configDiff: KeyValueDiffer<string, any>;
 
@@ -39,7 +39,7 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
     private elementRef: ElementRef, private differs: KeyValueDiffers,
     @Optional() @Inject(ACE_CONFIG) private defaults: AceConfigInterface) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     const params = new AceConfig(this.defaults);
 
     params.assign(this.config); // Custom configuration
@@ -48,7 +48,6 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
       params.readOnly = true;
 
       params.highlightActiveLine = false;
-      params.highlightGutterLine = false;
     }
 
     params.mode = 'ace/mode/' + (params.mode || 'text');
@@ -99,7 +98,7 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
     }
   }
 
-  ngDoCheck() {
+  ngDoCheck(): void {
     if (this.configDiff) {
       const changes = this.configDiff.diff(this.config || {});
 
@@ -111,7 +110,7 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.instance) {
       if (this.instance.isFocused()) {
         this.blur.emit();
@@ -123,7 +122,7 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
     }
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (this.instance && changes['disabled']) {
       if (changes['disabled'].currentValue !== changes['disabled'].previousValue) {
         this.zone.runOutsideAngular(() => {
@@ -136,26 +135,24 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
           this.instance.setReadOnly(this.disabled ? true : params.readOnly);
 
           const hlActive = (params.highlightActiveLine == null) ? true : false;
-          const hlGutter = (params.highlightGutterLine == null) ? true : false;
 
           this.instance.setHighlightActiveLine(this.disabled ? false : hlActive);
-          this.instance.setHighlightGutterLine(this.disabled ? false : hlGutter);
         });
       }
     }
   }
 
-  public ace() {
+  public ace(): ace.Editor {
     return this.instance;
   }
 
-  public clear() {
+  public clear(): void {
     this.instance.setValue('');
 
     this.instance.clearSelection();
   }
 
-  public setValue(value: string, cursorPos?: -1 | 1) {
+  public setValue(value: string, cursorPos?: -1 | 1): void {
     this.instance.setValue(value, cursorPos);
   }
 }

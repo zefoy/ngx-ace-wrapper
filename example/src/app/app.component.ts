@@ -6,7 +6,7 @@ import 'brace/theme/github';
 import 'brace/theme/clouds';
 import 'brace/mode/javascript';
 
-import { Component, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
 
 import { AceComponent, AceDirective, AceConfigInterface } from 'ngx-ace-wrapper';
 
@@ -16,7 +16,7 @@ import { AceComponent, AceDirective, AceConfigInterface } from 'ngx-ace-wrapper'
   templateUrl: 'app.component.html',
   styleUrls: [ 'app.component.css' ]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   public show: boolean = true;
 
   public type: string = 'component';
@@ -34,27 +34,34 @@ export class AppComponent {
 
   constructor() {}
 
-  toggleType() {
+  ngAfterViewInit(): void {
+    // To get the Ace instance:
+
+    // this.directiveRef.ace();
+    // this.componentRef.directiveRef.ace();
+  }
+
+  public toggleType(): void {
     this.type = (this.type === 'component') ? 'directive' : 'component';
   }
 
-  toggleMode() {
+  public toggleMode(): void {
     this.config.mode = (this.config.mode === 'text') ? 'javascript' : 'text';
   }
 
-  toggleTheme() {
+  public toggleTheme(): void {
     this.config.theme = (this.config.theme === 'github') ? 'clouds' : 'github';
   }
 
-  toggleDisabled() {
+  public toggleDisabled(): void {
     this.disabled = !this.disabled;
   }
 
-  toggleReadonly() {
+  public toggleReadonly(): void {
     this.config.readOnly = (this.config.readOnly === true) ? false : true;
   }
 
-  clearEditorContent() {
+  public clearEditorContent(): void {
     if (this.type === 'directive') {
       this.directiveRef.clear();
     } else if (this.type === 'component') {
@@ -62,23 +69,23 @@ export class AppComponent {
     }
   }
 
-  onEditorBlur(event: any) {
+  public onEditorBlur(event: any): void {
     console.log('Editor blur:', event);
   }
 
-  onEditorFocus(event: any) {
+  public onEditorFocus(event: any): void {
     console.log('Editor focus:', event);
   }
 
-  onValueChange(value: string) {
+  public onValueChange(value: string): void {
     console.log('Value change:', value);
   }
 
-  onContentChange(event: any) {
+  public onContentChange(event: any): void {
     console.log('Content change:', event);
   }
 
-  onSelectionChange(event: any) {
+  public onSelectionChange(event: any): void {
     console.log('Selection change:', event);
   }
 }

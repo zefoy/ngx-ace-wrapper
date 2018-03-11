@@ -3,7 +3,7 @@
   "description": "Angular wrapper library for Ace",
   "bugs": "https://github.com/zefoy/ngx-ace-wrapper/issues",
   "license": "MIT",
-  "version": "5.3.1",
+  "version": "6.0.0",
   "main": "./bundles/ngx-ace-wrapper.umd.js",
   "module": "./dist/ngx-ace-wrapper.es5.js",
   "typings": "./dist/ngx-ace-wrapper.d.ts",
@@ -40,11 +40,11 @@
     "brace-extra": "^0.9.0"
   },
   "devDependencies": {
-    "@angular/common": "^5.2.0",
-    "@angular/compiler": "^5.2.0",
-    "@angular/compiler-cli": "^5.2.0",
-    "@angular/core": "^5.2.0",
-    "@angular/platform-browser": "^5.2.0",
+    "@angular/common": "6.0.0-beta.6",
+    "@angular/compiler": "6.0.0-beta.6",
+    "@angular/compiler-cli": "6.0.0-beta.6",
+    "@angular/core": "6.0.0-beta.6",
+    "@angular/platform-browser": "6.0.0-beta.6",
     "@types/node": "^8.5.0",
     "angular-inliner-cli": "^1.2.0",
     "codelyzer": "^4.1.0",
@@ -60,12 +60,12 @@
     "stylelint-order": "^0.8.0",
     "tslint": "^5.9.0",
     "typescript": "~2.6.0",
-    "uglify-es": "^3.3.10",
+    "uglify-es": "^3.3.0",
     "watch": "^1.0.0",
     "zone.js": "^0.8.0"
   },
   "peerDependencies": {
-    "@angular/common": ">=5.0.0",
-    "@angular/core": ">=5.0.0"
+    "@angular/common": ">=6.0.0",
+    "@angular/core": ">=6.0.0"
   }
 }

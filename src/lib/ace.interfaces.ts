@@ -56,7 +56,6 @@ export interface AceConfigInterface {
   fixedWidthGutter?: boolean,
   printMarginColumn?: boolean,
   displayIndentGuides?: boolean,
-  highlightGutterLine?: boolean,
   hScrollBarAlwaysVisible?: boolean,
   vScrollBarAlwaysVisible?: boolean,
 
@@ -105,7 +104,6 @@ export class AceConfig implements AceConfigInterface {
   fixedWidthGutter: boolean;
   printMarginColumn: boolean;
   displayIndentGuides: boolean;
-  highlightGutterLine: boolean;
   hScrollBarAlwaysVisible: boolean;
   vScrollBarAlwaysVisible: boolean;
 
