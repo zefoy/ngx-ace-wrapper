@@ -12,11 +12,6 @@
     "module": "es2015",
     "moduleResolution": "node",
     "outDir": "./dist",
-    "paths": {
-      "@angular/*": [
-        "../node_modules/@angular/*"
-      ]
-    },
     "sourceMap": true,
     "target": "es5",
     "typeRoots": [
