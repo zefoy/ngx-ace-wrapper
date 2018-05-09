@@ -84,9 +84,9 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
         }
 
         if (this[eventName]) {
-          this.zone.run(() => {
+          if (this[eventName].observers.length) {
             this[eventName].emit(args);
-          });
+          }
         }
       });
     });
