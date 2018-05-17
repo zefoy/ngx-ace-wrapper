@@ -61,34 +61,38 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
 
     // Add native Ace event handling
     AceEditorEvents.forEach((eventName: AceEditorEvent) => {
-      this.instance!.on(eventName, (...args: any[]) => {
-        if (args.length === 1) {
-          args = args[0];
-        }
+      if (this.instance) {
+        this.instance.on(eventName, (...args: any[]) => {
+          if (args.length === 1) {
+            args = args[0];
+          }
 
-        if (this[eventName]) {
-          this.zone.run(() => {
-            if (this[eventName].observers.length) {
-              this[eventName].emit(args);
-            }
-          });
-        }
-      });
+          if (this[eventName]) {
+            this.zone.run(() => {
+              if (this[eventName].observers.length) {
+                this[eventName].emit(args);
+              }
+            });
+          }
+        });
+      }
     });
 
     // Add native Ace selection event handling
     AceSelectionEvents.forEach((eventName: AceSelectionEvent) => {
-      this.instance!.selection.on(eventName, (...args: any[]) => {
-        if (args.length === 1) {
-          args = args[0];
-        }
-
-        if (this[eventName]) {
-          if (this[eventName].observers.length) {
-            this[eventName].emit(args);
+      if (this.instance) {
+        this.instance.selection.on(eventName, (...args: any[]) => {
+          if (args.length === 1) {
+            args = args[0];
           }
-        }
-      });
+
+          if (this[eventName]) {
+            if (this[eventName].observers.length) {
+              this[eventName].emit(args);
+            }
+          }
+        });
+      }
     });
 
     if (!this.configDiff) {
