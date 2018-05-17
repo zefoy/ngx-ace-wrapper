@@ -7,9 +7,9 @@ This is an Angular wrapper library for the [Ace](http://ace.c9.io/). To use this
 ### Quick Links
 
 [Example application](https://zefoy.github.io/ngx-ace-wrapper/)
- | 
+ |
 [StackBlitz example](https://stackblitz.com/github/zefoy/ngx-ace-wrapper/tree/master/example)
- | 
+ |
 [Ace documentation](http://ace.c9.io/#nav-api)
 
 ### Building the library
@@ -144,6 +144,8 @@ For more detailed documentation with all the supported config options see the Ac
 ace()                        // Returns the Ace instance reference for full API access.
 
 clear()                      // Clears the editor document and resets text selection.
+
+getValue()                   // Returns the current text value of the editor document.
 
 setValue(value, cursorPos?)  // Text value for the editor document. Cursor position:
                              // 0 = select all, -1 = document start, 1 = document end.
