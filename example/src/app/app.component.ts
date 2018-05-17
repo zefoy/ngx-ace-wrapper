@@ -29,8 +29,8 @@ export class AppComponent implements AfterViewInit {
     readOnly : false
   };
 
-  @ViewChild(AceComponent) componentRef: AceComponent;
-  @ViewChild(AceDirective) directiveRef: AceDirective;
+  @ViewChild(AceComponent) componentRef: AceComponent | undefined;
+  @ViewChild(AceDirective) directiveRef: AceDirective | undefined;
 
   constructor() {}
 
@@ -62,9 +62,9 @@ export class AppComponent implements AfterViewInit {
   }
 
   public clearEditorContent(): void {
-    if (this.type === 'directive') {
+    if (this.type === 'directive' && this.directiveRef) {
       this.directiveRef.clear();
-    } else if (this.type === 'component') {
+    } else if (this.type === 'component' && this.componentRef && this.componentRef.directiveRef) {
       this.componentRef.directiveRef.clear();
     }
   }

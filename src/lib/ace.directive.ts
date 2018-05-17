@@ -5,35 +5,33 @@ import { Directive, Optional, Inject,
   Input, Output, EventEmitter, NgZone, ElementRef,
   KeyValueDiffer, KeyValueDiffers, SimpleChanges } from '@angular/core';
 
-import { ACE_CONFIG } from './ace.interfaces';
-
-import { AceEditorEvents, AceSelectionEvents,
-  AceConfig, AceConfigInterface } from './ace.interfaces';
+import { ACE_CONFIG, AceConfig, AceConfigInterface,
+  AceEditorEvent, AceEditorEvents, AceSelectionEvent, AceSelectionEvents } from './ace.interfaces';
 
 @Directive({
   selector: '[ace]',
   exportAs: 'ngxAce'
 })
 export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
-  private instance: ace.Editor = null;
+  private instance: ace.Editor | null = null;
 
-  private configDiff: KeyValueDiffer<string, any>;
+  private configDiff: KeyValueDiffer<string, any> | null = null;
 
   @Input() disabled: boolean = false;
 
-  @Input('ace') config: AceConfigInterface;
+  @Input('ace') config?: AceConfigInterface;
 
-  @Output() blur = new EventEmitter<any>();
-  @Output() focus = new EventEmitter<any>();
+  @Output() blur: EventEmitter<any> = new EventEmitter<any>();
+  @Output() focus: EventEmitter<any> = new EventEmitter<any>();
 
-  @Output() copy = new EventEmitter<any>();
-  @Output() paste = new EventEmitter<any>();
+  @Output() copy: EventEmitter<any> = new EventEmitter<any>();
+  @Output() paste: EventEmitter<any> = new EventEmitter<any>();
 
-  @Output() change = new EventEmitter<any>();
+  @Output() change: EventEmitter<any> = new EventEmitter<any>();
 
-  @Output() changeCursor = new EventEmitter<any>();
-  @Output() changeSession = new EventEmitter<any>();
-  @Output() changeSelection = new EventEmitter<any>();
+  @Output() changeCursor: EventEmitter<any> = new EventEmitter<any>();
+  @Output() changeSession: EventEmitter<any> = new EventEmitter<any>();
+  @Output() changeSelection: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private zone: NgZone,
     private elementRef: ElementRef, private differs: KeyValueDiffers,
@@ -62,23 +60,25 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
     });
 
     // Add native Ace event handling
-    AceEditorEvents.forEach((eventName) => {
-      this.instance.on(eventName, (...args) => {
+    AceEditorEvents.forEach((eventName: AceEditorEvent) => {
+      this.instance!.on(eventName, (...args: any[]) => {
         if (args.length === 1) {
           args = args[0];
         }
 
         if (this[eventName]) {
           this.zone.run(() => {
-            this[eventName].emit(args);
+            if (this[eventName].observers.length) {
+              this[eventName].emit(args);
+            }
           });
         }
       });
     });
 
     // Add native Ace selection event handling
-    AceSelectionEvents.forEach((eventName) => {
-      this.instance.selection.on(eventName, (...args) => {
+    AceSelectionEvents.forEach((eventName: AceSelectionEvent) => {
+      this.instance!.selection.on(eventName, (...args: any[]) => {
         if (args.length === 1) {
           args = args[0];
         }
@@ -123,36 +123,48 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.instance && changes['disabled']) {
+    if (changes['disabled']) {
       if (changes['disabled'].currentValue !== changes['disabled'].previousValue) {
         this.zone.runOutsideAngular(() => {
-          const params = new AceConfig(this.defaults);
+          if (this.instance) {
+            const params = new AceConfig(this.defaults);
 
-          params.assign(this.config); // Custom configuration
+            params.assign(this.config); // Custom configuration
 
-          this.instance.clearSelection();
+            this.instance.clearSelection();
 
-          this.instance.setReadOnly(this.disabled ? true : params.readOnly);
+            const hlActive = (params.highlightActiveLine == null) ? true : false;
 
-          const hlActive = (params.highlightActiveLine == null) ? true : false;
+            this.instance.setHighlightActiveLine(this.disabled ? false : hlActive);
 
-          this.instance.setHighlightActiveLine(this.disabled ? false : hlActive);
+            this.instance.setReadOnly(this.disabled ? true : (params.readOnly || false));
+          }
         });
       }
     }
   }
 
-  public ace(): ace.Editor {
+  public ace(): ace.Editor | null {
     return this.instance;
   }
 
   public clear(): void {
-    this.instance.setValue('');
+    if (this.instance) {
+      this.instance.setValue('');
 
-    this.instance.clearSelection();
+      this.instance.clearSelection();
+    }
+  }
+
+  public getValue(): string | undefined {
+    if (this.instance) {
+      return this.instance.getValue();
+    }
   }
 
   public setValue(value: string, cursorPos?: -1 | 1): void {
-    this.instance.setValue(value, cursorPos);
+    if (this.instance) {
+      this.instance.setValue(value, cursorPos);
+    }
   }
 }

@@ -11,14 +11,14 @@
     ],
     "module": "es2015",
     "moduleResolution": "node",
-    "outDir": "../dist",
+    "outDir": "./dist",
     "rootDir": ".",
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": false,
+    "strict": true,
     "target": "es5",
     "typeRoots": [
-      "../node_modules/@types"
+      "./node_modules/@types"
     ],
     "types": [
       "node",

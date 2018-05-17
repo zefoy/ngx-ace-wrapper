@@ -31,7 +31,7 @@ export class AceComponent implements AfterViewInit {
   @Input() mode: string = '';
   @Input() theme: string = '';
 
-  @Input() config: AceConfigInterface;
+  @Input() config?: AceConfigInterface;
 
   @HostBinding('class.ace')
   @Input() useAceClass: boolean = true;
@@ -50,7 +50,7 @@ export class AceComponent implements AfterViewInit {
   @Output() changeSession = new EventEmitter<any>();
   @Output() changeSelection = new EventEmitter<any>();
 
-  @ViewChild(AceDirective) directiveRef: AceDirective;
+  @ViewChild(AceDirective) directiveRef: AceDirective | undefined;
 
   constructor() {}
 
@@ -62,7 +62,7 @@ export class AceComponent implements AfterViewInit {
 
   private setContent(value: string, force?: boolean): void {
     if (force || value !== this.content) {
-      if (this.directiveRef && this.directiveRef.ace()) {
+      if (this.directiveRef) {
         this.directiveRef.setValue(value, -1);
       }
 
@@ -81,8 +81,10 @@ export class AceComponent implements AfterViewInit {
   }
 
   public onContentChange(event: any): void {
-    this.change.emit(event);
+    if (this.directiveRef) {
+      this.change.emit(event);
 
-    this.valueChange.emit(this.directiveRef.ace().getValue());
+      this.valueChange.emit(this.directiveRef.getValue() || '');
+    }
   }
 }
