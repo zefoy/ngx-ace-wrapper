@@ -29,8 +29,8 @@ export class AppComponent implements AfterViewInit {
     readOnly : false
   };
 
-  @ViewChild(AceComponent) componentRef: AceComponent | undefined;
-  @ViewChild(AceDirective) directiveRef: AceDirective | undefined;
+  @ViewChild(AceComponent) componentRef?: AceComponent;
+  @ViewChild(AceDirective) directiveRef?: AceDirective;
 
   constructor() {}
 

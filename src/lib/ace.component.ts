@@ -50,7 +50,7 @@ export class AceComponent implements AfterViewInit {
   @Output() changeSession = new EventEmitter<any>();
   @Output() changeSelection = new EventEmitter<any>();
 
-  @ViewChild(AceDirective) directiveRef: AceDirective | undefined;
+  @ViewChild(AceDirective) directiveRef?: AceDirective;
 
   constructor() {}
 
