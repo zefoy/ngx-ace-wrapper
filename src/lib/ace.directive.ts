@@ -168,7 +168,7 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
 
   public setValue(value: string, cursorPos?: -1 | 1): void {
     if (this.instance) {
-      this.instance.setValue(value, cursorPos);
+      this.instance.setValue(value || '', cursorPos);
     }
   }
 }
