@@ -2,6 +2,8 @@
   System.config({
     transpiler: 'ts',
     typescriptOptions: {
+      tsconfig: true,
+      rootDir: null,
       module: 'system'
     },
     meta: {
