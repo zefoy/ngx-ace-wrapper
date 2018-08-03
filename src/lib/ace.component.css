@@ -1,0 +1,25 @@
+.ace,
+.ace > .ace_editor {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ace[fxflex] {
+  display: flex;
+  flex-direction: inherit;
+  align-items: inherit;
+  min-width: 0;
+  min-height: 0;
+
+  -webkit-box-direction: inherit;
+  -webkit-box-orient: inherit;
+}
+
+.ace[fxflex] > .ace_editor {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+
+  -webkit-box-flex: 1;
+}
