@@ -31,6 +31,8 @@ export interface AceConfigInterface {
   highlightActiveLine?: boolean,
   highlightSelectedWord?: boolean,
   wrapBehavioursEnabled?: boolean,
+  copyWithEmptySelection?: boolean,
+  navigateWithinSoftTabs?: boolean,
   autoScrollEditorIntoView?: boolean,
 
   mode?: string,
@@ -60,6 +62,7 @@ export interface AceConfigInterface {
   fixedWidthGutter?: boolean,
   printMarginColumn?: boolean,
   displayIndentGuides?: boolean,
+  highlightGutterLine?: boolean,
   hScrollBarAlwaysVisible?: boolean,
   vScrollBarAlwaysVisible?: boolean,
 
@@ -79,6 +82,8 @@ export class AceConfig implements AceConfigInterface {
   highlightActiveLine?: boolean;
   highlightSelectedWord?: boolean;
   wrapBehavioursEnabled?: boolean;
+  copyWithEmptySelection?: boolean;
+  navigateWithinSoftTabs?: boolean;
   autoScrollEditorIntoView?: boolean;
 
   mode?: string;
@@ -108,6 +113,7 @@ export class AceConfig implements AceConfigInterface {
   fixedWidthGutter?: boolean;
   printMarginColumn?: boolean;
   displayIndentGuides?: boolean;
+  highlightGutterLine?: boolean;
   hScrollBarAlwaysVisible?: boolean;
   vScrollBarAlwaysVisible?: boolean;
 
