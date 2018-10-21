@@ -116,7 +116,7 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
 
   ngOnDestroy(): void {
     if (this.instance) {
-      if (this.instance.isFocused()) {
+      if (this.instance.isFocused() as any as boolean) {
         this.blur.emit();
       }
 
