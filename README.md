@@ -114,7 +114,7 @@ import 'brace/theme/github';
 Ace directive can be used in correctly structured div element with optional custom configuration:
 
 ```html
-<div class="ace" [ace]="config" [(text)]="text"></div>
+<div class="ace" [ace]="config">text</div>
 ```
 
 ```javascript
