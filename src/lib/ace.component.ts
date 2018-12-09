@@ -22,6 +22,9 @@ export class AceComponent implements AfterViewInit {
   private content: string = '';
 
   @Input()
+  get value(): string {
+    return this.content;
+  }
   set value(value: string) {
     this.setContent(value);
   }
@@ -63,7 +66,7 @@ export class AceComponent implements AfterViewInit {
   private setContent(value: string, force?: boolean): void {
     if (force || value !== this.content) {
       if (this.directiveRef) {
-        this.directiveRef.setValue(value, -1);
+        this.directiveRef.setValue(value, 1);
       }
 
       this.content = value;
@@ -84,7 +87,9 @@ export class AceComponent implements AfterViewInit {
     if (this.directiveRef) {
       this.change.emit(event);
 
-      this.valueChange.emit(this.directiveRef.getValue() || '');
+      this.content = this.directiveRef.getValue() || '';
+
+      this.valueChange.emit(this.value);
     }
   }
 }

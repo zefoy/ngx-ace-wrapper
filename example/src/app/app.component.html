@@ -28,7 +28,7 @@
       <div class="box-title">Ace</div>
 
       <div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
-        <ace *ngIf="type == 'component' && show" fxFlex="auto" [config]="config" [value]="'Some example content'" [disabled]="disabled" (blur)="onEditorBlur($event)" (focus)="onEditorFocus($event)" (valueChange)="onValueChange($event)" (selectionChange)="onSelectionChange($event)">
+        <ace *ngIf="type == 'component' && show" fxFlex="auto" [config]="config" [disabled]="disabled" (blur)="onEditorBlur($event)" (focus)="onEditorFocus($event)" (valueChange)="onValueChange($event)" (selectionChange)="onSelectionChange($event)" [(value)]="content">
         </ace>
 
         <div *ngIf="type == 'directive' && show" class="ace-editor" fxFlex="auto" [ace]="config" [disabled]="disabled" (blur)="onEditorBlur($event)" (focus)="onEditorFocus($event)" (change)="onContentChange($event)" (selectionChange)="onSelectionChange($event)">

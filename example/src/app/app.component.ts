@@ -21,6 +21,8 @@ export class AppComponent implements AfterViewInit {
 
   public type: string = 'component';
 
+  public content: string = 'Some example content';
+
   public disabled: boolean = false;
 
   public config: AceConfigInterface = {
