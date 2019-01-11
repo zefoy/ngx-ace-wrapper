@@ -8,7 +8,6 @@ import { Component,
   ViewChild, HostBinding, ViewEncapsulation } from '@angular/core';
 
 import { AceDirective } from './ace.directive';
-
 import { AceConfigInterface } from './ace.interfaces';
 
 @Component({
