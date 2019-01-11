@@ -47,7 +47,7 @@
     "ace-builds": "^1.4.0",
     "brace": "^0.11.0",
     "core-js": "^2.6.0",
-    "ngx-ace-wrapper": "^7.0.0",
+    "ngx-ace-wrapper": "^7.2.0",
     "rollup": "^1.1.0",
     "rxjs": "^6.3.0",
     "zone.js": "^0.8.0"
