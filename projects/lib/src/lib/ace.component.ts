@@ -13,8 +13,8 @@ import { AceConfigInterface } from './ace.interfaces';
 @Component({
   selector: 'ace',
   exportAs: 'ngxAce',
-  templateUrl: '../../dist/lib/ace.component.html',
-  styleUrls: [ '../../dist/lib/ace.component.css' ],
+  templateUrl: './ace.component.html',
+  styleUrls: [ './ace.component.css' ],
   encapsulation: ViewEncapsulation.None
 })
 export class AceComponent implements AfterViewInit {

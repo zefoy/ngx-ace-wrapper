@@ -16,14 +16,23 @@ This is an Angular wrapper library for the [Ace](http://ace.c9.io/). To use this
 
 ```bash
 npm install
-npm run build
+npm start
 ```
 
 ### Running the example
 
 ```bash
+cd example
 npm install
-npm run start
+npm start
+```
+
+### Library development
+
+```bash
+npm link
+cd example
+npm link ngx-ace-wrapper
 ```
 
 ### Installing and usage
