@@ -6,5 +6,10 @@
     "umdModuleIds": {
       "brace": "brace"
     }
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "ace-builds",
+    "brace",
+    "brace.extra"
+  ]
 }
