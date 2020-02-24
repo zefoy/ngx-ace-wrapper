@@ -2,7 +2,7 @@
   "name": "ngx-ace-wrapper",
   "description": "Angular wrapper library for Ace",
   "bugs": "https://github.com/zefoy/ngx-ace-wrapper/issues",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
