@@ -70,7 +70,13 @@ export interface AceConfigInterface {
   dragEnabled?: boolean,
   scrollSpeed?: number,
   focusTimeout?: number,
-  tooltipFollowsMouse?: boolean
+  tooltipFollowsMouse?: boolean,
+
+  enableBasicAutocompletion?: boolean,
+  enableLiveAutocompletion?: boolean,
+  enableSnippets?: boolean,
+  enableEmmet?: boolean,
+  useElasticTabstops?: boolean
 }
 
 export class AceConfig implements AceConfigInterface {
@@ -122,6 +128,12 @@ export class AceConfig implements AceConfigInterface {
   scrollSpeed?: number;
   focusTimeout?: number;
   tooltipFollowsMouse?: boolean;
+
+  enableBasicAutocompletion?: boolean;
+  enableLiveAutocompletion?: boolean;
+  enableSnippets?: boolean;
+  enableEmmet?: boolean;
+  useElasticTabstops?: boolean;
 
   constructor(config: AceConfigInterface = {}) {
     this.assign(config);
