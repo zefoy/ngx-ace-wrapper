@@ -72,7 +72,7 @@ export interface AceConfigInterface {
   focusTimeout?: number,
   tooltipFollowsMouse?: boolean,
 
-  enableBasicAutocompletion?: boolean,
+  enableBasicAutocompletion?: boolean | { getCompletions: (editor: any, session: any, pos: any, prefix: any, callback: any) => void; }[],
   enableLiveAutocompletion?: boolean,
   enableSnippets?: boolean,
   enableEmmet?: boolean,
@@ -129,7 +129,7 @@ export class AceConfig implements AceConfigInterface {
   focusTimeout?: number;
   tooltipFollowsMouse?: boolean;
 
-  enableBasicAutocompletion?: boolean;
+  enableBasicAutocompletion?: boolean | { getCompletions: (editor: any, session: any, pos: any, prefix: any, callback: any) => void; }[];
   enableLiveAutocompletion?: boolean;
   enableSnippets?: boolean;
   enableEmmet?: boolean;
