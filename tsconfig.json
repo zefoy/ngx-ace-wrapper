@@ -20,7 +20,7 @@
     ],
     "paths": {
       "ngx-ace-wrapper": [
-        "dist/lib"
+        "./projects/lib/src/public-api.ts"
       ]
     }
   },

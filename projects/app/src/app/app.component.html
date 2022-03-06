@@ -10,7 +10,7 @@
       <div class="box-title">Settings</div>
 
       <div class="action-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
-        <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto" (click)='toggleType()'>{{(type == "component") ? "Switch to directive" : "Switch to component"}}</div>
+        <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto" (click)='toggleType()'>{{(type === "component") ? "Switch to directive" : "Switch to component"}}</div>
 
         <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto" (click)='toggleDisabled()'>Toggle disabled state</div>
 
@@ -18,7 +18,7 @@
 
         <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto" (click)='toggleMode()'>{{(config.mode === "javascript") ? "Change to text mode" : "Change to javascript mode"}}</div>
 
-        <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto" (click)='toggleTheme()'>{{(config.theme == "github") ? "Change to clouds theme" : "Change to github theme"}}</div>
+        <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto" (click)='toggleTheme()'>{{(config.theme === "github") ? "Change to clouds theme" : "Change to github theme"}}</div>
 
         <div class="action-button" fxLayout="column" fxLayoutAlign="center" fxFlex="auto" (click)='clearEditorContent()'>Clear the editor content</div>
       </div>
@@ -28,10 +28,10 @@
       <div class="box-title">Ace</div>
 
       <div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
-        <ace *ngIf="type == 'component' && show" fxFlex="auto" [config]="config" [disabled]="disabled" (blur)="onEditorBlur($event)" (focus)="onEditorFocus($event)" (valueChange)="onValueChange($event)" (selectionChange)="onSelectionChange($event)" [(value)]="content">
+        <ace *ngIf="type === 'component' && show" fxFlex="auto" [config]="config" [disabled]="disabled" (blur)="onEditorBlur($event)" (focus)="onEditorFocus($event)" (valueChange)="onValueChange($event)" (selectionChange)="onSelectionChange($event)" [(value)]="content">
         </ace>
 
-        <div *ngIf="type == 'directive' && show" class="ace-editor" fxFlex="auto" [ace]="config" [disabled]="disabled" (blur)="onEditorBlur($event)" (focus)="onEditorFocus($event)" (change)="onContentChange($event)" (selectionChange)="onSelectionChange($event)">
+        <div *ngIf="type === 'directive' && show" class="ace-editor" fxFlex="auto" [ace]="config" [disabled]="disabled" (blur)="onEditorBlur($event)" (focus)="onEditorFocus($event)" (change)="onContentChange($event)" (selectionChange)="onSelectionChange($event)">
           Some example content
         </div>
       </div>
