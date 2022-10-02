@@ -24,7 +24,7 @@
       "repository": "git@github.com:zefoy/ngx-ace-wrapper.git",
       "branch": "gh-pages",
       "folder": "dist/app",
-      "script": "ng build app --configuration production -- --base-href=ngx-ace-wrapper --delete-output-path=false",
+      "script": "ng build app --configuration production --base-href=ngx-ace-wrapper --delete-output-path=false",
       "commit": "Publishing $npm_package_version",
       "user": {
         "name": "ZEF Devel",
