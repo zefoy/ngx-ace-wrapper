@@ -15,6 +15,9 @@ import { ACE_CONFIG, AceConfig, AceConfigInterface,
 export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
   private instance: ace.Editor | null = null;
 
+  private instanceEventListeners: any[] = [];
+  private selectionEventListeners: any[] = [];
+
   private configDiff: KeyValueDiffer<string, any> | null = null;
 
   @Input() disabled: boolean = false;
@@ -62,7 +65,7 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
     // Add native Ace event handling
     AceEditorEvents.forEach((eventName: AceEditorEvent) => {
       if (this.instance) {
-        this.instance.on(eventName, (...args: any[]) => {
+        const callback = (...args: any[]) => {
           if (args.length === 1) {
             args = args[0];
           }
@@ -74,14 +77,18 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
               }
             });
           }
-        });
+        };
+
+        this.instance.on(eventName, callback);
+
+        this.instanceEventListeners.push({ eventName, callback });
       }
     });
 
     // Add native Ace selection event handling
     AceSelectionEvents.forEach((eventName: AceSelectionEvent) => {
       if (this.instance) {
-        this.instance.selection.on(eventName, (...args: any[]) => {
+        const callback = (...args: any[]) => {
           if (args.length === 1) {
             args = args[0];
           }
@@ -91,7 +98,11 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
               this[eventName].emit(args);
             }
           }
-        });
+        };
+
+        this.instance.selection.on(eventName, callback);
+
+        this.selectionEventListeners.push({ eventName, callback });
       }
     });
 
@@ -120,6 +131,18 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
         this.blur.emit();
       }
 
+      this.instanceEventListeners.forEach((el: any) => {
+        this.instance.off(el.eventName, el.callback);
+      });
+
+      this.instanceEventListeners = [];
+
+      this.selectionEventListeners.forEach((el: any) => {
+        this.instance.selection.off(el.eventName, el.callback);
+      });
+
+      this.selectionEventListeners = [];
+
       delete this.instance;
 
       this.instance = null;
@@ -141,7 +164,7 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
 
             this.instance.setHighlightActiveLine(this.disabled ? false : hlActive);
 
-            this.instance.setReadOnly(this.disabled ? true : (params.readOnly || false));
+            this.instance.setReadOnly(this.disabled ? true : (params.readOnly || false));
           }
         });
       }
