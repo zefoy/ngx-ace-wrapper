@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AceModule, AceConfigInterface, ACE_CONFIG } from 'ngx-ace-wrapper';
 
@@ -21,8 +21,8 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {
   ],
   imports: [
     AceModule,
-    BrowserModule,
-    FlexLayoutModule
+    CommonModule,
+    BrowserModule
   ],
   exports: [
   ],

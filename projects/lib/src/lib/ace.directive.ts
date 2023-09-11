@@ -49,6 +49,8 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
       params.readOnly = true;
 
       params.highlightActiveLine = false;
+    } else if (params.highlightActiveLine !== false) {
+      params.highlightActiveLine = true; // Default
     }
 
     params.mode = 'ace/mode/' + (params.mode || 'text');
@@ -160,7 +162,7 @@ export class AceDirective implements OnInit, DoCheck, OnDestroy, OnChanges {
 
             this.instance.clearSelection();
 
-            const hlActive = (params.highlightActiveLine == null) ? true : false;
+            const hlActive = (params.highlightActiveLine !== false) ? true : false;
 
             this.instance.setHighlightActiveLine(this.disabled ? false : hlActive);
 

@@ -28,7 +28,7 @@ export class AppComponent implements AfterViewInit {
   public config: AceConfigInterface = {
     mode: 'text',
     theme: 'github',
-    readOnly : false
+    readOnly : false,
   };
 
   @ViewChild(AceComponent, { static: false }) componentRef?: AceComponent;

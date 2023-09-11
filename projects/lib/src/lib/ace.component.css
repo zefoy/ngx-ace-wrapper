@@ -5,7 +5,7 @@
   height: 100%;
 }
 
-.ace[fxflex] {
+.ace.flex {
   display: flex;
   flex-direction: inherit;
   align-items: inherit;
@@ -16,7 +16,7 @@
   -webkit-box-orient: inherit;
 }
 
-.ace[fxflex] > .ace_editor {
+.ace.flex > .ace_editor {
   flex: 1 1 auto;
   min-width: 0;
   min-height: 0;
