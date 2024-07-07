@@ -1,9 +1,9 @@
 {
+  "license": "MIT",
+  "version": "17.0.0",
   "name": "ngx-ace-wrapper",
   "description": "Angular wrapper library for Ace",
   "bugs": "https://github.com/zefoy/ngx-ace-wrapper/issues",
-  "version": "16.0.0",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/zefoy/ngx-ace-wrapper.git"
