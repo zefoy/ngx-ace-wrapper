@@ -4,6 +4,10 @@
 
 This is an Angular wrapper library for the [Ace](http://ace.c9.io/). To use this library you should get familiar with the Ace documentation as well since this documentation only explains details specific to this wrapper.
 
+### EOL notice
+
+Version 17.0.0 will be the last release of this library. I recommend you to switch to using ngx-ace-wrapper-laze package which is better maintained and uses lazy loading.
+
 ### Quick Links
 
 [Example application](https://zefoy.github.io/ngx-ace-wrapper/)
